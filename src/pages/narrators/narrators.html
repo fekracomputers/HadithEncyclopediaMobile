@@ -1,0 +1,82 @@
+
+
+<ion-header>
+  <div class="margin-header"></div>
+
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>الرواة</ion-title>
+    </ion-navbar>
+
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <div class="row padding-wing">
+      <div class="col-xs-4 no-padding" >
+        <ion-select [selectOptions]="selectOptions" okText="موافق" cancelText="الغاء" [(ngModel)]="rotba" placeholder="الرتبة" (ionChange)="getRotba($event,rotba)">
+          <ion-option value="">الجميع</ion-option>
+          <ion-option value="صحابي">صحابي</ion-option>
+          <ion-option value="ثقة">ثقة</ion-option>
+          <ion-option value="صدوق حسن">صدوق </ion-option>
+          <ion-option value="حسن">حسن الحديث</ion-option>
+          <ion-option value="فقيه">فقيه</ion-option>
+          <ion-option value="مقبول">مقبول</ion-option>
+          <ion-option value="ضعيف">ضعيف</ion-option>
+          <ion-option value="كذاب">كذاب</ion-option>
+          <ion-option value="بالكذب">متهم بالكذب</ion-option>
+          <ion-option value="بالوضع">متهم بالوضع</ion-option>
+          <ion-option value="متروك">متروك الحديث</ion-option>
+          <ion-option value="منكر">منكر الحديث</ion-option>
+          <ion-option value="مجهول">مجهول</ion-option>
+        </ion-select>
+      </div>
+
+      <div class="col-xs-8 no-padding">
+        <input type="text" class="form-control" id="search-narrator"
+               [ngModel]="search"
+               [value]="search"
+               (keyup)="getItems(search=$event.target.value)" placeholder="Search">
+      </div>
+    </div>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let item of result" >
+    <div *ngIf="item.id != 0" class="col-xs-6 col-sm-4 no-padding">
+      <ion-card class="cat-card narrator-panel" (click)="getNarrator($event,item.id)">
+        <ion-card-content>
+          <div>
+            <img  *ngIf="item.gender == 'رجل'" src="assets/img/man-vector.png" class="img-auth" alt="">
+            <img  *ngIf="item.gender == 'أنثى'" src="assets/img/women-vector.png" class="img-auth" alt="">
+            <h3 class="cat-name">{{item.name | slice:0:45}}</h3>
+
+          </div>
+          <hr class="">
+
+          <h4 class="count-book">
+            رتبة : {{item.rotba}}
+          </h4>
+
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+  <div *ngIf="! result">
+    <ion-card *ngIf="errorDisplay" class=" margin-lm-top">
+      <ion-card-content class="text-center">
+        <p class="text-center">تعذر الاتصال بالانترنت</p>
+        <button ion-button color="primary" (click)="refreshPage()" icon-right>
+          <ion-icon name="refresh-circle"></ion-icon>
+          أعد المحاولة </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="showScroll">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

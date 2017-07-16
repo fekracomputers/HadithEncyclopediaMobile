@@ -1,0 +1,51 @@
+
+<ion-header>
+  <div class="margin-header"></div>
+
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>الأقسام</ion-title>
+    </ion-navbar>
+
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar (ionInput)="getItems($event)"
+                   [showCancelButton]="shouldShowCancel"
+                   (ionCancel)="onCancel($event)"></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let item of result">
+    <div class="col-xs-6 col-sm-4 no-padding">
+      <ion-card class="cat-card" (click)="getBook($event,item.id,item.title)">
+        <ion-card-header>
+          <img src="assets/img/category.png" class="img-cat" alt="">
+          <h3 class="cat-title">{{item.title}}</h3>
+        </ion-card-header>
+        <hr class="hr-color">
+        <ion-card-content>
+          <h4 class="count-book">    <span class="icon-title">
+              <ion-icon name="md-bookmarks"></ion-icon></span>
+            الكتب : {{item.nbooks}}
+          </h4>
+
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+  <div *ngIf="! result">
+    <ion-card *ngIf="errorDisplay" class=" margin-lm-top">
+      <ion-card-content class="text-center">
+        <p class="text-center">تعذر الاتصال بالانترنت</p>
+        <button ion-button color="primary" (click)="refreshPage()" icon-right>
+          <ion-icon name="refresh-circle"></ion-icon>
+          أعد المحاولة </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

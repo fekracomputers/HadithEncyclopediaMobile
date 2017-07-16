@@ -1,0 +1,81 @@
+
+<ion-header>
+  <div class="margin-header" *ngIf="type !='tab'"></div>
+
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>{{title}}</ion-title>
+
+    </ion-navbar>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar  (ionInput)="getItems($event)"
+                    [showCancelButton]="shouldShowCancel"
+                    ></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div *ngIf="result">
+    <div class="text-center" *ngIf="IsBook">
+      <button ion-button (click)="getUserHadith($event)">أكمل القراءة</button>
+    </div>
+    <ion-card>
+      <ion-card-content>
+        <table class="table title-text">
+          <tr class="no-border">
+            <td >أسم الكتاب</td>
+            <td>:</td>
+            <td class="text-info">{{title}}</td>
+          </tr>
+          <tr>
+            <td>أسم المؤلف</td>
+            <td>:</td>
+            <td class="text-info">{{author}}</td>
+          </tr>
+          <tr>
+            <td>عدد الأحاديث</td>
+            <td>:</td>
+            <td class="text-info">{{HadithNumber}}</td>
+          </tr>
+
+        </table>
+      </ion-card-content>
+    </ion-card>
+    <div *ngFor="let item of result">
+      <ion-card (click)="getSub($event ,item.id,item.title,item.hadithid)">
+
+        <ion-card-content>
+          <div class="row">
+            <div class="col-xs-2">
+              <span class="glyphicon glyphicon-menu-left pull-left colorize" aria-hidden="true"></span>
+            </div>
+
+
+            <div class="col-xs-8 no-padding">
+              <h4 class="title-text">
+
+                {{item.title}}
+              </h4>
+            </div>
+            <div class="col-xs-2">
+              <ion-icon name="albums" class="pull-right colorize"></ion-icon>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <div *ngIf="! result">
+    <ion-card *ngIf="errorDisplay" class=" margin-lm-top">
+      <ion-card-content class="text-center">
+        <p class="text-center">تعذر الاتصال بالانترنت</p>
+        <button ion-button color="primary" (click)="refreshPage()" icon-right>
+          <ion-icon name="refresh-circle"></ion-icon>
+          أعد المحاولة </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

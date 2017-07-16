@@ -1,0 +1,55 @@
+<ion-menu [content]="content" side="right">
+    <ion-header>
+      <ion-toolbar color="primary" class="more-height">
+        <ion-title><img menuClose (click)="goHome($event)" src="assets/img/mosque-logo.png"  class="img-menu" alt=""></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="menu-bar">
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="btn-menu">
+         <div class="row">
+           <div class="col-xs-10">{{p.title}}</div>
+           <div class="col-xs-2"><ion-icon [name]="p.icon" color="primary"></ion-icon></div>
+
+         </div>
+       </button>
+
+        <button menuClose ion-item (click)="SocialShare($event)" class="btn-menu">
+          <div class="row">
+            <div class="col-xs-10">مشاركة التطبيق</div>
+            <div class="col-xs-2">  <ion-icon name="share" color="primary"></ion-icon></div>
+
+          </div>
+        </button>
+        <a href="https://play.google.com/store/apps/details?id=com.fekracomputers.hadith" menuClose ion-item class="btn-menu">
+          <div class="row">
+            <div class="col-xs-10">تقييم التطبيق</div>
+            <div class="col-xs-2">  <ion-icon name="thumbs-up" color="primary"></ion-icon></div>
+
+          </div>
+        </a>
+      </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+<ion-header class="main-header">
+  <ion-toolbar color="primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu" md="md-menu"></ion-icon>
+    </button>
+    <ion-title (click)="goHome($event)"><img src="assets/img/text-logo.png"  class="img-logo" alt=""></ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="opensearch($event)">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+
+</ion-header>

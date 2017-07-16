@@ -1,0 +1,34 @@
+
+<ion-header>
+  <div class="margin-header" *ngIf="type !='tab'"></div>
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>{{name}}</ion-title>
+
+    </ion-navbar>
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content >
+  <div *ngFor="let item of hadith">
+    <ion-card (click)="getHadith($event,item.booktitle,item.bookid ,item.hadithid)">
+      <ion-toolbar color="primary">
+        <h4 class="main-font" >أسم الكتاب : {{item.booktitle}}</h4>
+        <h4 class="main-font"> رقم الحديث : {{item.hadithid}}</h4>
+      </ion-toolbar>
+      <ion-card-content >
+
+        <p class="more-height hadith-text hadith-id">
+
+          {{item.shortbody}}
+        </p>
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
+
+</ion-content>

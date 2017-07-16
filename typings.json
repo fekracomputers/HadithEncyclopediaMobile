@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "jquery": "registry:dt/jquery#1.10.0+20170123093700",
+    "jqueryui": "registry:dt/jqueryui#1.11.0+20161214061125"
+  }
+}

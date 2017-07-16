@@ -1,0 +1,36 @@
+<!--
+  Generated template for the Tefseer page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <div class="margin-header" *ngIf="type !='tab'"></div>
+
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>التفسير</ion-title>
+
+    </ion-navbar>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+  <br>
+  <div *ngFor="let item of result">
+    <div class="col-xs-6 col-sm-4 no-padding pull-right">
+      <ion-card class="cat-card" (click)="getBook($event,item.tafseerbookid,item.tafseerpageid ,item.tafseerbooktitle)">
+        <ion-card-content>
+          <img src="assets/img/books.png" class="img-cat" alt="">
+          <h3 class="cat-title">{{item.tafseerbooktitle}}</h3>
+
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+
+</ion-content>

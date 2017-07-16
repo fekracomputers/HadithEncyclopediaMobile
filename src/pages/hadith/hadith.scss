@@ -1,0 +1,47 @@
+.card p {
+  font-size: 1.7rem !important;
+  line-height: 2.0 !important;
+  color: #222;
+  font-weight: 500 !important;
+}
+.matn{
+  color: #710b0b;
+}
+.subject-text{
+  text-align: center !important;
+  font-size: 1.8rem;
+  font-weight: 500 !important;
+  line-height: 1.5;
+  color: #313131;
+  padding:1px 10px !important;
+}
+.mins-hadith{
+  margin-top: -46px !important;
+}
+ion-fab-list{
+  margin:0px !important;
+
+}
+ion-slides{
+  direction: ltr;
+
+}
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+  display: none;
+}
+.swiper-container{
+  height:auto !important;
+}
+.hadith-text{
+  text-align: justify;
+  direction: rtl;
+}
+
+.no-border > td{
+  border: 0 !important;
+}
+.text-rawy{
+  font-size: 1.4rem !important;
+  font-weight: 500!important;
+  line-height: 1.5;
+}

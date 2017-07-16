@@ -1,0 +1,77 @@
+
+<ion-header>
+  <div class="margin-header" *ngIf="type !='tab'"></div>
+
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>
+        <span class="sHadith-title">{{title}}</span>
+      <span class="pull-left">
+        <button ion-button (click)="HadithAlert($event)">
+      <ion-icon name="search"></ion-icon>
+    </button>
+      </span>
+      </ion-title>
+
+    </ion-navbar>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-slides (ionSlideNextStart)="slidePrev($event,previousId)"
+              (ionSlidePrevEnd)="slideNext($event,nextId)">
+
+      <ion-slide *ngFor="let item of result">
+        <h4 class="subject-text" padding>
+          {{item.title}}
+        </h4>
+
+        <ion-card>
+          <ion-toolbar color="primary">
+            <h4 class="white-color">
+              <span (click)="showAlert($event,item.id)" *ngIf="item.tafseer" >
+                              <span class="pull-right"><img src="assets/img/book-open-flat.png" class="book-ico" width="55%" alt=""></span>
+
+              </span>
+<span [ngClass]="{'hadith-number': item.tafseer}" >حديث : {{item.id}} </span>
+              </h4>
+          </ion-toolbar>
+          <ion-card-content>
+
+            <p class="more-height hadith-text hadith-id" [innerHTML]="item.body">
+
+              {{item.body}}
+            </p>
+          </ion-card-content>
+
+        </ion-card>
+
+        <ion-card [ngStyle]="{'margin-bottom': mdBottom}" class="main-rawy">
+          <ion-toolbar color="primary">
+            <h4 class="white-color">
+              الرواة
+            </h4>
+          </ion-toolbar>
+          <ion-card-content>
+            <table class="table rwaha" >
+              <thead>
+              <tr class="no-border">
+                <td ></td>
+                <td ></td>
+              </tr>
+
+              </thead>
+              <tbody class="first-tr-border">
+
+              </tbody>
+
+            </table>
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-slide>
+
+  </ion-slides>
+</ion-content>

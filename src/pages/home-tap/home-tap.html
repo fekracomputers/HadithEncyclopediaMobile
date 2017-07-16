@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="content"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title><img src="assets/img/logo.png"  class="img-logo" alt=""></ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only [navPush]="search">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu" md="md-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content >
+
+  <ion-tabs class="tab-bar">
+    <ion-tab [root]="tab1Root" tabTitle="الأقسام" tabIcon="home"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="الكتب" tabIcon="md-bookmarks"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="المؤلفين" tabIcon="contacts"></ion-tab>
+  </ion-tabs>
+
+</ion-content>

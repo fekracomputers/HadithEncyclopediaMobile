@@ -1,0 +1,84 @@
+<!--
+  Generated template for the AuthorDetails page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <div class="margin-header" *ngIf="type !='tab'"></div>
+
+  <ion-navbar>
+    <ion-title>{{name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-card *ngIf="name" class="cat-card">
+    <ion-card-header>
+      <img src="assets/img/author.png" class="img-man" alt="">
+
+    </ion-card-header>
+    <ion-card-content>
+      <table class="table">
+        <tr>
+          <td class="font-ma">الأسم</td>
+          <td>:</td>
+          <td class="text-info font-ma">{{name}}</td>
+        </tr>
+        <tr *ngIf="death != -1">
+          <td class="font-ma">عام الوفاة</td>
+          <td>:</td>
+          <td class="text-info font-ma">{{death}}</td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="name" padding>
+    <ion-toolbar color="light">
+      <ion-title>كتب المؤلف</ion-title>
+    </ion-toolbar>
+
+  </div>
+  <div *ngFor="let item of books" >
+    <ion-card class="book-card" (click)="getSubject($event,item.id ,item.title,item.authors[0].name)">
+      <ion-card-content class="no-padding">
+        <ion-grid class="no-padding">
+          <ion-row>
+            <ion-col width-25 class="no-padding" >
+              <img src="assets/img/book-cover.png" alt="">
+            </ion-col>
+            <ion-col width-75>
+              <ion-title class="book-title">
+                <span class="icon-title">
+              <ion-icon name="md-bookmarks"></ion-icon>
+                </span>
+                {{item.title}}
+              </ion-title>
+              <ion-title class="author-title">
+                <span class="icon-info">
+              <ion-icon name="brush"></ion-icon>
+                </span>
+                {{item.authors[0].name}}
+              </ion-title>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+  <div *ngIf="! result">
+    <ion-card *ngIf="errorDisplay" class=" margin-lm-top">
+      <ion-card-content class="text-center">
+        <p class="text-center">تعذر الاتصال بالانترنت</p>
+        <button ion-button color="primary" (click)="refreshPage()" icon-right>
+          <ion-icon name="refresh-circle"></ion-icon>
+          أعد المحاولة </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

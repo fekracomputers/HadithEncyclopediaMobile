@@ -1,0 +1,72 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="content"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title><img src="assets/img/logo.png"  class="img-logo" alt=""></ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only [navPush]="search">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu" md="md-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>كتبي</ion-title>
+    </ion-navbar>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+  <div *ngFor="let item of books" >
+    <ion-card class="book-card" >
+      <ion-card-content class="no-padding">
+        <ion-grid class="no-padding">
+          <ion-row>
+            <ion-col width-25 class="no-padding" (click)="getHadith($event,item.id ,item.title,item.hadithid)">
+              <img src="assets/img/book-cover.png" alt="">
+            </ion-col>
+            <ion-col width-75>
+              <ion-title class="book-title" (click)="getSubject($event,item.id ,item.title)">
+                <span class="icon-title">
+              <ion-icon name="md-bookmarks"></ion-icon>
+                </span>
+                {{item.title}}
+              </ion-title>
+              <ion-title class="author-title" (click)="getAuthor($event,item.id)">
+                <span class="icon-info">
+              <ion-icon name="brush"></ion-icon>
+                </span>
+                {{item.authors[0].name}}
+              </ion-title>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+  <div *ngIf="! result">
+    <ion-card *ngIf="errorDisplay" class=" margin-lm-top">
+      <ion-card-content class="text-center">
+        <p class="text-center">تعذر الاتصال بالانترنت</p>
+        <button ion-button color="primary" (click)="refreshPage()" icon-right>
+          <ion-icon name="refresh-circle"></ion-icon>
+          أعد المحاولة </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

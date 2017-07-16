@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-searchbar  (ionInput)="getItems($event)"
+                    [showCancelButton]="shouldShowCancel"
+                    (ionCancel)="CancelSearch($event)"></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngFor="let item of result" >
+    <div class="col-xs-6 col-sm-4 no-padding">
+      <ion-card class="cat-card author-height" (click)="getAuthor($event,item.id)">
+        <ion-card-content>
+          <img src="assets/img/author.png" class="img-auth" alt="">
+          <h3 class="cat-name">{{item.name | slice:0:45}}</h3>
+          <hr class="">
+            <h4 class="count-book">    <span class="icon-title">
+              <ion-icon name="md-bookmarks"></ion-icon></span>
+              الكتب : {{item.nbooks }}
+            </h4>
+
+          </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+  <div *ngIf="! result">
+    <ion-card *ngIf="errorDisplay" class=" margin-lm-top">
+      <ion-card-content class="text-center">
+        <p class="text-center">تعذر الاتصال بالانترنت</p>
+        <button ion-button color="primary" (click)="refreshPage()" icon-right>
+          <ion-icon name="refresh-circle"></ion-icon>
+          أعد المحاولة </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="showScroll">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

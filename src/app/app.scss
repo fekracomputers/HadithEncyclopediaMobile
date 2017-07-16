@@ -1,0 +1,279 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+/* Regular */
+.margin-header{
+  margin-top: 50px !important;
+}
+.margin-lm-bottom{
+  margin-bottom: 50px !important;
+}
+.img-logo{
+  display: block;
+  max-width: 55%;
+  height: auto;
+  margin-right:-10px;
+}
+.img-menu{
+  display: block;
+  max-width: 40%;
+  height: auto;
+  margin:auto;
+}
+.scroll-content {
+  background: url("../assets/img/symphony.png") !important;
+
+}
+.toolbar{
+  min-height: 50px;
+}
+.toolbar-md-light{
+  box-shadow: 2px 1px 1px #6b6b6b;
+}
+.segment-md{
+  margin-bottom: -10px !important ;
+}
+.segment-md .segment-button{
+  font-size:1.5rem !important;
+  font-weight:700;
+}
+.text-def{
+  font-size: 1.6rem !important;
+  font-weight:500 !important;
+  margin-right:65px !important;
+}
+.img-tab{
+  width:20%;
+  position: absolute;
+  top:25px;
+  right:15px;
+}
+.img-author{
+  width:20%;
+  position: absolute;
+  top:125px;
+  right:15px;
+}
+.bar-button-menutoggle{
+  display: inline;
+}
+.segment-button.activated,.segment-button.segment-activated{
+  border-bottom: 3px solid ;
+}
+.no-padding{
+  padding:0px !important ;
+}
+.book-title{
+  font-size:1.6rem !important ;
+  font-weight:500 !important;
+  margin:15px 5px !important;
+
+}
+.author-title{
+  font-size:1.5rem !important ;
+  font-weight:500 !important;
+  margin-top:10px !important;
+  color: #3a3a3a !important;
+}
+.book-card{
+  border-left:7px solid #3a8789;
+}
+.cat-card{
+  border-top:5px solid #3a8789;
+  border-bottom:5px solid #3a8789;
+}
+.icon-title{
+  color: #3a8789;
+  margin-left: 5px;
+}
+hr.hr-color{
+  border-top: 1px solid #3a8789;
+  margin-top:15px;
+  margin-bottom:15px;
+}
+.icon-info{
+  color: #3a8789;
+  margin-left: 6px;
+  margin-right: 5px;
+}
+.margin-bottom{
+  margin-bottom:25px !important;
+}
+.mins-margin{
+  margin-top:-30px !important;
+}
+.li-title{
+  font-size:1.2rem !important ;
+  font-weight:500 !important;
+  margin-top:10px !important;
+  color: #468c8e !important;
+}
+.cat-title{
+  font-size:1.6rem !important ;
+  font-weight:500 !important;
+  margin:12px 5px !important;
+  text-align: center !important;
+}
+.count-book{
+  font-size:1.4rem !important ;
+  font-weight:500 !important;
+  text-align: center !important;
+  line-height: 30px !important;
+}
+.img-cat{
+  width:55% !important;
+  margin: auto;
+}
+.img-ban{
+  width:35% !important;
+  margin: auto;
+}
+.img-auth{
+  width:70% !important;
+  margin: auto;
+}
+.img-man{
+  width:50% !important;
+  margin: auto;
+}
+ion-app, ion-nav, ion-tab, ion-tabs, .app-root{
+  position:relative !important ;
+
+}
+.tabbar {
+  opacity:1 !important;
+  position:relative !important ;
+  background: #ffffff !important;
+  box-shadow: 0px 2px 1px #6b6b6b !important;
+
+}
+.tabs-md .tab-button-text{
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  color: #3e9092;
+}
+.tabs-md .tab-button{
+  min-height: 6.2rem !important;
+  border-left: 1px solid #f1eded;
+}
+.tabs-md .tab-button[aria-selected=true]{
+  border-bottom: 2px solid #3e9092;
+}
+.back-button{
+  display: inline;
+}
+.cat-card > .card-content{
+  padding: 0px 17px 0px 16px !important;
+}
+.btn-menu{
+
+}
+.icon-menu{
+  float: left !important;
+  color: #3e9092 !important;
+}
+.white-color{
+  color:#fff !important;
+  font-weight: 500 !important;
+  font-size:1.8rem !important ;
+  margin-right:10px !important;
+}
+ion-infinite-scroll{
+  display:inline-block;
+}
+.cat-name{
+  font-size:1.4rem !important ;
+  font-weight:500 !important;
+  margin:12px 0px !important;
+  text-align: center !important;
+  color: #000000;
+  line-height: 1.6 !important;
+}
+.author-height{
+  height: 250px;
+}
+.narrator-panel{
+  height: 255px;
+}
+.more-height{
+  min-height:105px !important;
+}
+.more-height>img{
+  margin:auto;
+}
+.menu-inner{
+  width:280px !important;
+}
+.menu-bar>.scroll-content{
+  background: #fff !important;
+}
+.font-ma{
+  font-size: 20px;
+  line-height: 36px;
+}
+ion-app._gmaps_cdv_ .nav-decor{
+  background-color: transparent !important;
+}
+.alert-md .alert-radio-label{
+  font-size:16px;
+  font-weight:bold;
+}
+.alert-md .alert-radio-icon{
+  left:-16px !important;
+}
+.alert-title{
+  text-align:center;
+}
+.book-ico{
+  width: 55% !important;
+  float: right !important;
+}
+.hadith-number{
+  margin-top: 6px !important;
+  position: absolute;
+}
+.no-border > td{
+  border: 0 !important;
+}
+.text-rawy{
+  font-size: 1.4rem !important;
+  font-weight: 500!important;
+  line-height: 1.5;
+  text-align: right;
+}
+.sHadith-title{
+  margin-top: 12px;
+  float: right;
+}
+.toolbar-title-md {
+   padding: 0 10px;
+ }
+.about-text{
+  text-align: justify;
+}
+.first-tr-border >tr:nth-child(1)> td{
+border-top:0px
+}
+.ion-master-tefseer{
+  margin-top:10px;
+}
+.rawy{
+  color: #353535;
+}
+.margin-lm-top{
+  margin-top:30% !important;
+}

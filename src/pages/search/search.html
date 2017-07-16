@@ -1,0 +1,72 @@
+
+<ion-header>
+  <div class="margin-header"></div>
+  <ion-toolbar color="light">
+    <ion-navbar>
+      <ion-title>البحث</ion-title>
+
+    </ion-navbar>
+  </ion-toolbar>
+
+
+  <ion-toolbar color="primary" class="border-light">
+    <div class="form-input">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control"
+                 [ngModel]="search"
+                 [value]="search"
+                 (keyup)="getVal(search=$event.target.value)" placeholder="Search">
+          <div class="input-group-addon" (click)="getSearch($event,search)">
+            <span class="glyphicon glyphicon-search"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ion-toolbar>
+
+  <div *ngIf="autoComplete" >
+    <ul class="list-group" *ngFor="let item of body">
+      <li class="list-group-item" (click)="setSearch(word , item)">
+        <span class="text-info">{{word }}</span>
+        <span class="text-red">{{item}}</span>
+      </li>
+    </ul>
+  </div>
+
+
+</ion-header>
+
+
+
+<ion-content >
+  <div *ngFor="let item of hadith">
+    <ion-card (click)="getHadith($event,item.booktitle,item.bookid ,item.hadithid)">
+      <ion-toolbar color="primary">
+        <h4 class="main-font" >أسم الكتاب : {{item.booktitle}}</h4>
+        <h4 class="main-font"> رقم الحديث : {{item.hadithid}}</h4>
+      </ion-toolbar>
+      <ion-card-content >
+
+        <p class="more-height hadith-text hadith-id">
+
+          {{item.shortbody}}
+        </p>
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
+  <div *ngIf="! hadith">
+    <ion-card *ngIf="errorDisplay" class=" margin-lm-top">
+      <ion-card-content class="text-center">
+        <p class="text-center">تعذر الاتصال بالانترنت</p>
+        <button ion-button color="primary" (click)="refreshPage()" icon-right>
+          <ion-icon name="refresh-circle"></ion-icon>
+          أعد المحاولة </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
